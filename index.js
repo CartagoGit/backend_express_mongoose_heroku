@@ -26,7 +26,7 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
 
 // Escuchar peticiones
-// const port = 4000; //Poner un puerto que no este usando react
-app.listen(process.env.PORT, () => {
+const port = 4000; //Poner un puerto que no este usando react
+app.listen(process.env.PORT || port, () => {
 	console.log(`Servidor corriendo en el puerto: ${process.env.PORT}`);
 });
