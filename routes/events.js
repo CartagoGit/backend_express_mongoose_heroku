@@ -30,7 +30,7 @@ router.post(
 		check("end", "La fecha de finalización es obligatoria").custom(isDate),
 		check(
 			"start",
-			"La fecha inicial debe ser anterior o igual a la fecha final"
+			`La fecha inicial debe ser anterior o igual a la fecha final`
 		).custom(isBeforeOrEqual),
 		validateFields
 	],

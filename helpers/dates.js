@@ -24,8 +24,8 @@ const isAfter = (start, { req }) => {
 };
 
 const converterUnix = (start, end) => {
-	const unixStart = moment.unix(start);
-	const unixEnd = moment.unix(end);
+	const unixStart = moment(start).unix();
+	const unixEnd = moment(end).unix();
 	return [unixStart, unixEnd];
 };
 
