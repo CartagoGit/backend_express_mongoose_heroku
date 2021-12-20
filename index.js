@@ -35,5 +35,5 @@ app.listen(process.env.PORT, () => {
 //FIX para redirigir las rutas que no contenga express al index.html con los componentes de react para que actue el router
 
 app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname + "public/index.html"));
+	res.sendFile(path.join(__dirname, "build", "index.html"));
 });
