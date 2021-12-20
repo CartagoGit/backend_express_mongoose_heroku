@@ -22,9 +22,15 @@ app.use(express.static("public")); //use() en express es usado como middleware
 // Lectura y parseo del body
 app.use(express.json());
 
+
 // Rutas
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
+
+//FIX para redirigir las rutas que no contenga express al index.html con los componentes de react para que actue el router
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 // Escuchar peticiones
 // const port = 4000; //Poner un puerto que no este usando react
@@ -32,8 +38,4 @@ app.listen(process.env.PORT, () => {
 	console.log(`Servidor corriendo en el puerto: ${process.env.PORT}`);
 });
 
-//FIX para redirigir las rutas que no contenga express al index.html con los componentes de react para que actue el router
 
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "build", "index.html"));
-});
